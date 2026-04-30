@@ -1,0 +1,117 @@
+<!-- templates/dashboard.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="icon" href="{{ url_for('static', filename='images/logo.png') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-wordcloud@2"></script>
+</head>
+<body class="app-page theme-light">
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <span class="logo" style="color: white">ANALYSIS TOOL</span>
+            <button class="sidebar-toggle" id="sidebar-toggle-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+        <nav>
+            <a href="{{ url_for('home') }}"><i class="fas fa-home"></i><span class="menu-text">Home</span></a>
+            <a href="{{ url_for('dashboard') }}" class="active"><i class="fas fa-chart-pie"></i><span class="menu-text">Dashboard</span></a>
+            <a href="#" class="has-submenu"><i class="fas fa-chart-line"></i><span class="menu-text">Visualization</span></a>
+            <div class="submenu">
+                <a href="{{ url_for('visualisation_employment') }}">Employment</a>
+                <a href="{{ url_for('visualisation_living_cost') }}">Living Cost</a>
+                <a href="{{ url_for('visualisation_public_health') }}">Public Health</a>
+            </div>
+            <a href="{{ url_for('view_data') }}"><i class="fas fa-table"></i><span class="menu-text">View Data</span></a>
+            <a href="{{ url_for('analyser') }}"><i class="fas fa-search"></i><span class="menu-text">Analyser</span></a>
+            <a href="{{ url_for('real_time_scrape') }}"><i class="fab fa-reddit-alien"></i><span class="menu-text">Live Analysis</span></a>
+            <a href="{{ url_for('help_page') }}"><i class="fas fa-question-circle"></i><span class="menu-text">Help</span></a>
+            <a href="{{ url_for('index') }}" ><i class="fa-solid fa-person-walking-arrow-right"></i><span class="menu-text">Exit</span></a>
+        </nav>
+        <div class="sidebar-footer">
+            <!-- <a href="#" class="sidebar-btn">Refresh</a>
+            <a href="{{ url_for('index') }}" class="sidebar-btn">Exit</a> -->
+        </div>
+    </aside>
+    <main class="main-content">
+        <header>
+            <h2><i class="fas fa-chart-pie" style="margin-right: 10px;"></i>DASHBOARD - OVERVIEW OF ANALYSIS</h2>
+        </header>
+        <div class="content-body dashboard-grid">
+            <!-- Stat Cards Row -->
+            <div class="stat-card positive" style="background-color: #007bff;">
+                <h3 style="color: white;">POSITIVE COUNT</h3>
+                <p id="positive-count"style="color: white;">0</p>
+            </div>
+            <div class="stat-card neutral" style="background-color: #ffc107;">
+                <h3 style="color: white;">NEUTRAL COUNT</h3>
+                <p id="neutral-count" style="color: white;">0</p>
+            </div>
+            <div class="stat-card negative" style="background-color: #dc3545;">
+                <h3 style="color: white;">NEGATIVE COUNT</h3>
+                <p id="negative-count" style="color: white;">0</p>
+            </div>
+            <div class="stat-card total" style="background-color: #6f42c1;">
+                <h3 style="color: white;">TOTAL COUNT</h3>
+                <p id="total-count" style="color: white;">0</p>
+            </div>
+
+            <!-- Row 2: Topic Chart (6), Pie(3), Platform(3) -->
+            <div class="chart-container chart-span-6">
+                 <div class="enlarge-chart-btn" data-chart-id="topic-bar-chart" title="Enlarge chart">
+                    <svg viewBox="0 0 24 24"><path fill="currentColor" d="M10 4H4v6l1.8-1.8 4.2 4.2-1.4 1.4 1.4 1.4 1.4-1.4-4.2-4.2L8 10h2V4zm4 16h6v-6l-1.8 1.8-4.2-4.2 1.4-1.4-1.4-1.4-1.4 1.4 4.2 4.2L16 14h-2v6z"/></svg>
+                </div>
+                <h3>Sentiment Distribution Based on Topic</h3>
+                <canvas id="topic-bar-chart"></canvas>
+            </div>
+            <div class="chart-container chart-span-3">
+                 <div class="enlarge-chart-btn" data-chart-id="sentiment-pie-chart" title="Enlarge chart">
+                    <svg viewBox="0 0 24 24"><path fill="currentColor" d="M10 4H4v6l1.8-1.8 4.2 4.2-1.4 1.4 1.4 1.4 1.4-1.4-4.2-4.2L8 10h2V4zm4 16h6v-6l-1.8 1.8-4.2-4.2 1.4-1.4-1.4-1.4-1.4 1.4 4.2 4.2L16 14h-2v6z"/></svg>
+                </div>
+                <h3>Sentiment Distribution</h3>
+                <canvas id="sentiment-pie-chart"></canvas>
+            </div>
+            <div class="chart-container chart-span-3">
+                 <div class="enlarge-chart-btn" data-chart-id="platform-bar-chart" title="Enlarge chart">
+                    <svg viewBox="0 0 24 24"><path fill="currentColor" d="M10 4H4v6l1.8-1.8 4.2 4.2-1.4 1.4 1.4 1.4 1.4-1.4-4.2-4.2L8 10h2V4zm4 16h6v-6l-1.8 1.8-4.2-4.2 1.4-1.4-1.4-1.4-1.4 1.4 4.2 4.2L16 14h-2v6z"/></svg>
+                </div>
+                <h3>Distribution Based on Social Media Platforms</h3>
+                <canvas id="platform-bar-chart" style="display: block; box-sizing: border-box; height: 250px; width: 229px; cursor: default;"></canvas>
+            </div>
+
+            <!-- Row 3: Word Cloud Image Placeholders -->
+            <div class="chart-container chart-span-4">
+                <h3>Employment Trend Topic Word Cloud</h3>
+                <img src="{{ url_for('static', filename='images/topic1.png') }}" alt="Employment Trend Word Cloud" style="width: 100%; height: auto; border-radius: 4px;">
+            </div>
+             <div class="chart-container chart-span-4">
+                <h3>Cost of Living Word Cloud</h3>
+                <img src="{{ url_for('static', filename='images/topic2.png') }}" alt="Cost of Living Word Cloud" style="width: 100%; height: auto; border-radius: 4px;">
+            </div>
+            <div class="chart-container chart-span-4">
+                <h3>Public Health Topic Word Cloud</h3>
+                <img src="{{ url_for('static', filename='images/topic3.png') }}" alt="Public Health Word Cloud" style="width: 100%; height: auto; border-radius: 4px;">
+            </div>
+        </div>
+    </main>
+    
+    <!-- Modal for Enlarging Charts -->
+    <div class="modal-overlay" id="chart-modal">
+        <div class="modal-content">
+            <button class="modal-close" id="modal-close-btn" title="Close">&times;</button>
+            <div id="modal-chart-container">
+                 <canvas id="modal-chart-canvas"></canvas>
+            </div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>
+    

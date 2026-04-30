@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analysis Tool - Landing Page</title>
+    <link rel="icon" href="{{ url_for('static', filename='images/logo.png') }}">
+    <!-- IMPORTANT: Link to the new stylesheet -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/landing.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="landing-header" >
+        <div class="container">
+            <div class="logo">
+                <i class="fa-solid fa-magnifying-glass-chart"></i>
+                <span>ANALYSIS TOOL</span>
+            </div>
+            <nav class="main-nav">
+                <a href="#features">Features</a>
+                <a href="#how-it-works">How It Works</a>
+                <a href="{{ url_for('home') }}">Home</a>
+                <a href="{{ url_for('dashboard') }}">Dashboard</a>
+                <a href="{{ url_for('view_data') }}">View Data</a>
+                <a href="{{ url_for('analyser') }}">Analyser</a>
+                <a href="{{ url_for('help_page') }}">Help</a>
+            </nav>
+            <a href="{{ url_for('real_time_scrape') }}" class="btn btn-primary">Live Analysis</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <main>
+        <section class="hero">
+            <div class="container hero-container">
+                <div class="hero-text">
+                    <h1>Understand Social Sentiment on <span class="highlight">Economic Issues</span></h1>
+                    <p>Utilizing Machine Learning technique to analyze text, social media, and public feedback. Get actionable insights in real-time.</p>
+                    <div class="hero-buttons">
+                        <a href="{{ url_for('home') }}" class="btn btn-primary">Get Started</a>
+                        <!-- <a href="{{ url_for('analyser') }}" class="btn btn-secondary">Watch Demo</a> -->
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <img src="static/images/image.png" alt="Sentiment Dashboard Illustration">
+                </div>
+            </div>
+        </section>
+
+        <!-- Trusted By Section -->
+        <!-- <section class="trusted-by">
+            <div class="container">
+                <p>TRUSTED BY INNOVATIVE COMPANIES</p>
+                <div class="logos">
+                    <span>ACME Inc.</span>
+                    <span>TechCorp</span>
+                    <span>GlobalFirm</span>
+                    <span>NextGen</span>
+                    <span>FutureTech</span>
+                </div>
+            </div>
+        </section> -->
+
+        <!-- Features Section -->
+        <section id="features" class="features">
+            <div class="container">
+                <h2>Powerful Sentiment Analysis Features</h2>
+                <p class="section-subtitle">Our platform provides comprehensive tools to understand and act on public sentiment data.</p>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <i class="fas fa-chart-line icon"></i>
+                        <h3>Real-time Analytics</h3>
+                        <p>Enter a URL from a supported platform to scrape and analyze public comments in real-time, giving you immediate feedback on a specific discussion.</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-language icon"></i>
+                        <h3>Direct Text Analyser</h3>
+                        <p>Paste any English text directly into our analyser to get an instant sentiment score and confidence level. Perfect for quick checks of specific feedback.</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-shield-alt icon"></i>
+                        <h3>Socioeconomic Focus</h3>
+                        <p>Our model is tuned to understand the nuances of socioeconomic topics, providing more relevant sentiment analysis for public policy and social research.</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-lightbulb icon"></i>
+                        <h3>Interactive Visualizations</h3>
+                        <p>Explore your data through clear charts and graphs. Instantly view sentiment breakdowns by topic or platform to easily identify key patterns in the data.</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-tachometer-alt icon"></i>
+                        <h3>Detailed Data View</h3>
+                        <p>Go beyond summaries and review individual comments in a clean, card-based layout. Filter by sentiment to focus on the feedback that matters most.</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-bell icon"></i>
+                        <h3>Topic-Specific Dashboards</h3>
+                        <p>Dive deep into key issues with dedicated dashboards for topics like employment, cost of living, and public health, showing sentiment distribution for each.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- How It Works Section -->
+        <section id="how-it-works" class="how-it-works">
+            <div class="container">
+                <h2>How Our Tool Works</h2>
+                <p class="section-subtitle">Our advanced Machine Learning-based platform makes sentiment analysis simple and actionable.</p>
+                <div class="steps-container">
+                    <div class="step">
+                        <div class="step-number">1</div>
+                        <h3>Instant Social Insights</h3>
+                        <p>Target any public discussion for live analysis. Just provide a link, and our tool will scrape the content to instantly reveal public sentiment</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">2</div>
+                        <h3>AI Analysis</h3>
+                        <p>Our advanced algorithms analyze the sentiment, context, and emotion behind every piece of text.</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">3</div>
+                        <h3>Actionable Insights</h3>
+                        <p>Get clear, actionable insights and recommendations based on sentiment analysis.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- CTA Section -->
+        <!-- <section class="cta">
+            <div class="container">
+                <h2>Ready to Understand Public Sentiment Better?</h2>
+                <p>Start analyzing today and unlock valuable insights that drive business growth.</p>
+                <div class="hero-buttons">
+                    <a href="{{ url_for('home') }}" class="btn btn-primary">Start Free Trial</a>
+                    <a href="{{ url_for('analyser') }}" class="btn btn-secondary">Schedule Demo</a>
+                </div>
+            </div>
+        </section> -->
+    </main>
+
+    <!-- Footer
+    <footer class="landing-footer">
+        <div class="container footer-container">
+            <div class="footer-about">
+                <div class="logo">
+                    <i class="fa-solid fa-magnifying-glass-chart"></i>
+                    <span>ANALYSIS TOOL</span>
+                </div>
+                <p>Advanced sentiment analysis for modern research and business.</p>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-github"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+            <div class="footer-links">
+                <h4>Product</h4>
+                <a href="#features">Features</a>
+                <a href="#">Pricing</a>
+                <a href="#">Case Studies</a>
+                <a href="#">API Documentation</a>
+            </div>
+            <div class="footer-links">
+                <h4>Resources</h4>
+                <a href="#">Blog</a>
+                <a href="#">Guides</a>
+                <a href="#">Webinars</a>
+                <a href="#">Support</a>
+            </div>
+            <div class="footer-links">
+                <h4>Company</h4>
+                <a href="#">About Us</a>
+                <a href="#">Careers</a>
+                <a href="#">Contact</a>
+                <a href="#">Privacy Policy</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Analysis Tool. All rights reserved.</p>
+        </div>
+    </footer> -->
+
+</body>
+</html>

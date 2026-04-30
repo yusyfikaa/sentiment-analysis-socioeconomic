@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Live Scraping Analysis</title>
+    <link rel="icon" href="{{ url_for('static', filename='images/logo.png') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body class="app-page theme-light">
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <span class="logo" style="color: white">ANALYSIS TOOL</span>
+            <button class="sidebar-toggle" id="sidebar-toggle-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+        <nav>
+            <a href="{{ url_for('home') }}"><i class="fas fa-home"></i><span class="menu-text">Home</span></a>
+            <a href="{{ url_for('dashboard') }}"><i class="fas fa-chart-pie"></i><span class="menu-text">Dashboard</span></a>
+            <a href="#" class="has-submenu"><i class="fas fa-chart-line"></i><span class="menu-text">Visualization</span></a>
+            <div class="submenu">
+                <a href="{{ url_for('visualisation_employment') }}">Employment</a>
+                <a href="{{ url_for('visualisation_living_cost') }}">Living Cost</a>
+                <a href="{{ url_for('visualisation_public_health') }}">Public Health</a>
+            </div>
+            <a href="{{ url_for('view_data') }}"><i class="fas fa-table"></i><span class="menu-text">View Data</span></a>
+            <a href="{{ url_for('analyser') }}"><i class="fas fa-search"></i><span class="menu-text">Analyser</span></a>
+            <a href="{{ url_for('real_time_scrape') }}" class="active"><i class="fab fa-reddit-alien"></i><span class="menu-text">Live Analysis</span></a>
+            <a href="{{ url_for('help_page') }}"><i class="fas fa-question-circle"></i><span class="menu-text">Help</span></a>
+            <a href="{{ url_for('index') }}" ><i class="fa-solid fa-person-walking-arrow-right"></i><span class="menu-text">Exit</span></a>
+        </nav>
+    </aside>
+    <main class="main-content">
+        <header>
+            <h2><i class="fab fa-reddit-alien" style="margin-right: 10px;"></i>LIVE SCRAPING REDDIT PLATFORM</h2>
+            <!-- <button id="print-btn" class="sidebar-btn" style="margin-left: auto;">
+            <i class="fas fa-print" style="margin-right: 8px;"></i>
+            Print Results
+        </button> -->
+        </header>
+        <div class="content-body scrape-content">
+             <div class="input-area">
+                <label for="scrape-link">Please enter your platform link for real-time scraping analysis.</label>
+                <input type="text" id="scrape-link" placeholder="Enter a Reddit submission URL...">
+                <div class="action-buttons">
+                    <button id="scrape-btn" class="btn-primary" style="background-color: #8160e6; color: #ffff; border: #8160e6;">ANALYSE</button>
+                    <button id="clear-scrape-btn" class="btn-secondary" style="background-color: #ed3c4e; color: #ffff; border: #ed3c4e">CLEAR</button>
+                    <a href="{{ url_for('help_page') }}" class="help-link">Help</a>
+                </div>
+            </div>
+            
+            <!-- New container for all results -->
+            <div id="scrape-results-container" class="result-area" style="display: none;">
+                <div class="scrape-summary-grid">
+                    <div class="stat-card total">
+                        <h3>Total Comments</h3>
+                        <p id="scrape-total-count">0</p>
+                    </div>
+                    <div class="stat-card positive">
+                        <h3>Positive</h3>
+                        <p id="scrape-positive-count">0</p>
+                    </div>
+                    <div class="stat-card negative">
+                        <h3>Negative</h3>
+                        <p id="scrape-negative-count">0</p>
+                    </div>
+                    <div class="stat-card neutral">
+                        <h3>Neutral</h3>
+                        <p id="scrape-neutral-count">0</p>
+                    </div>
+                </div>
+                <!-- Charts -->
+                <div class="scrape-charts-grid">
+                    <!-- FIX: Added chart-span-6 class to both containers -->
+                    <div class="chart-container chart-span-6">
+                        <h3>Sentiment Distribution</h3>
+                        <canvas id="scrape-bar-chart"></canvas>
+                    </div>
+                    <div class="chart-container chart-span-6">
+                        <h3>Sentiment Breakdown</h3>
+                        <canvas id="scrape-pie-chart"></canvas>
+                    </div>
+                </div>
+                <!-- Analyzed Comments Table -->
+                <div class="table-container" style="margin-top: 2rem;">
+                     <h3 class="table-title">Analyzed Comments</h3>
+                    <table id="scrape-results-table">
+                        <thead style="background-color: #8160e6; color: #ffff; border: #8160e6;">
+                            <tr>
+                                <th>Author</th>
+                                <th>Comment</th>    
+                                <th>Sentiment</th>
+                                <th>Score</th>
+                            </tr>
+                        </thead>
+                        <tbody id="scrape-results-body">
+                            <!-- Scraped data will appear here -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+             <p id="scrape-placeholder" style="text-align: center; color: var(--text-secondary); padding: 2rem;">Enter a Reddit URL and click "Analyze" to see results.</p>
+        </div>
+    </main>
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>
