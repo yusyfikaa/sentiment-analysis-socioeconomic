@@ -8,12 +8,10 @@ from datetime import datetime
 app = Flask(__name__)
 
 # --- Reddit API Credentials ---
-# IMPORTANT: Replace these with your own Reddit API credentials
-# Do NOT share your client_secret with anyone.
 reddit = praw.Reddit(
-    client_id="eDUq_1TrhNQByRjCxMUdeQ",
-    client_secret="spyNuTmVhw3N8uWQOYlqKBCL3dt0cA",
-    user_agent="Decent_Guess9238",
+    client_id="your_client_id_here",
+    client_secret="your_client_secret_here",
+    user_agent="your_user_agent_here",
     check_for_async=False # Necessary for Flask integration
 )
 
