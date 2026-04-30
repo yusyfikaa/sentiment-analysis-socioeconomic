@@ -1,4 +1,4 @@
-<img width="1889" height="1029" alt="image" src="https://github.com/user-attachments/assets/35355359-33f0-4e4f-a978-00658edbe3fc" /># Socioeconomic Sentiment Analysis from Social Media (TikTok & Reddit)
+### Socioeconomic Sentiment Analysis from Social Media (TikTok & Reddit)
 
 ## 📌 Project Overview
 This project analyzes social media discussions related to socioeconomic issues using Natural Language Processing (NLP) and Machine Learning techniques.  
@@ -58,12 +58,16 @@ A web application is also developed to allow real-time sentiment prediction usin
 
 - EDA graphs
 <img width="1899" height="1013" alt="image" src="https://github.com/user-attachments/assets/dbef79c5-8d56-4cab-8bd6-a00ad7464948" />
+
 - Word clouds
 <img width="1514" height="339" alt="image" src="https://github.com/user-attachments/assets/4cacb718-68e3-497d-a467-7c2621cb513a" />
+
 - Web app interface
 <img width="1889" height="1029" alt="image" src="https://github.com/user-attachments/assets/6024078a-bed3-44cd-b7f9-b92664930250" />
+
 - Text Analyser
 <img width="1911" height="1021" alt="image" src="https://github.com/user-attachments/assets/c39e381c-953e-41e8-94e4-e4f08a7858fe" />
+
 - Reddit Scraping Analyser
 <img width="1901" height="1025" alt="image" src="https://github.com/user-attachments/assets/a6bf5cee-a367-46f4-a462-bc2af37bba85" />
 
