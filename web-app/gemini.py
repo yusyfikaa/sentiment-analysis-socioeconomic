@@ -13,8 +13,8 @@ genai.configure(api_key=api_key)
 model = genai.GenerativeModel(model_name="gemini-1.5-flash")
 
 # === File paths ===
-input_path = 'C:/Users/yussy/temp/clean_data/sentiment.xlsx'
-output_path = 'C:/Users/yussy/temp/clean_data/topic_label.xlsx'
+input_path = 'data/processed-data.xlsx'
+output_path = 'data/topic_label.xlsx'
 
 # Ensure output directory exists
 os.makedirs(os.path.dirname(output_path), exist_ok=True)
