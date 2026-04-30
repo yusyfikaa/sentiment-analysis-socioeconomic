@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analysis on Public Health</title>
+    <link rel="icon" href="{{ url_for('static', filename='images/logo.png') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-wordcloud@2"></script>
+</head>
+<body class="app-page theme-light">
+     <aside class="sidebar">
+        <div class="logo" style="color: white">ANALYSIS TOOL</div>
+        <nav>
+            <a href="{{ url_for('home') }}" ><i class="fas fa-home" style="margin-right: 10px;"></i>Home</a>
+            <a href="{{ url_for('dashboard') }}" ><i class="fas fa-chart-pie" style="margin-right: 10px;"></i> Dashboard</a>
+            <a href="#" class="has-submenu active"><i class="fas fa-chart-line" style="margin-right: 10px;"></i> Visualization</a>
+            <div class="submenu open">
+                <a href="{{ url_for('visualisation_employment') }}">Employment</a>
+                <a href="{{ url_for('visualisation_living_cost') }}">Living Cost</a>
+                <a href="{{ url_for('visualisation_public_health') }}" class="active">Public Health</a>
+            </div>
+            <a href="{{ url_for('view_data') }}"><i class="fas fa-table" style="margin-right: 10px;"></i> View Data</a>
+            <a href="{{ url_for('analyser') }}"><i class="fas fa-search" style="margin-right: 10px;"></i> Analyser</a>
+            <a href="{{ url_for('real_time_scrape') }}"><i class="fab fa-reddit-alien" style="margin-right: 10px;"></i> Live Analysis</a>
+            <a href="{{ url_for('help_page') }}"><i class="fas fa-question-circle" style="margin-right: 10px;"></i> Help</a>
+            <a href="{{ url_for('index') }}" ><i class="fa-solid fa-person-walking-arrow-right" style="margin-right: 10px;"></i> Exit</a>
+        </nav>
+        <div class="sidebar-footer">
+            <!-- <a href="#" class="sidebar-btn">Refresh</a>
+            <a href="{{ url_for('index') }}" class="sidebar-btn">Exit</a> -->
+        </div>
+    </aside>
+    <main class="main-content">
+        <header>
+            <h2><i class="fa-solid fa-suitcase-medical" style="margin-right: 10px;"></i>ANALYSIS ON PUBLIC HEALTH</h2>
+        </header>
+        <div class="content-body topic-grid" data-topic="public_health">
+            <!-- Row 1: Stat Cards -->
+            <div class="stat-card positive">
+                <h3>POSITIVE COUNT</h3>
+                <p id="positive-count">0</p>
+            </div>
+            <div class="stat-card neutral">
+                <h3>NEUTRAL COUNT</h3>
+                <p id="neutral-count">0</p>
+            </div>
+            <div class="stat-card negative">
+                <h3>NEGATIVE COUNT</h3>
+                <p id="negative-count">0</p>
+            </div>
+            <div class="stat-card total">
+                <h3>TOTAL COUNT</h3>
+                <p id="total-count">0</p>
+            </div>
+
+            <!-- Row 2: Charts (Pie Chart and Bar Chart) -->
+            <div class="chart-container chart-span-4">
+                <h3>Sentiment Distribution on Public Health</h3>
+                <canvas id="topic-sentiment-pie-chart"></canvas>
+            </div>
+            <div class="chart-container chart-span-8">
+                <h3>Platform-Based Sentiment Distribution on Public Health Impact</h3>
+                <canvas id="topic-platform-bar-chart"></canvas>
+            </div>
+
+            <!-- Row 3: Word Clouds -->
+            <div class="chart-container chart-span-4">
+                <h3>Positive Word Cloud</h3>
+                <img src="{{ url_for('static', filename='images/t3_positive.png') }}" alt="Positive Word Cloud" style="width: 100%; height: auto; border-radius: 4px;">
+            </div>
+            <div class="chart-container chart-span-4">
+                <h3>Neutral Word Cloud</h3>
+                <img src="{{ url_for('static', filename='images/t3_neutral.png') }}" alt="Neutral Word Cloud" style="width: 100%; height: auto; border-radius: 4px;">
+            </div>
+             <div class="chart-container chart-span-4">
+                <h3>Negative Word Cloud</h3>
+                 <img src="{{ url_for('static', filename='images/t3_negative.png') }}" alt="Negative Word Cloud" style="width: 100%; height: auto; border-radius: 4px;">
+            </div>
+        </div>
+    </main>
+    
+    <!-- Modal for Enlarging Charts -->
+    <div class="modal-overlay" id="chart-modal">
+        <div class="modal-content">
+            <button class="modal-close" id="modal-close-btn" title="Close">&times;</button>
+            <div id="modal-chart-container">
+                 <canvas id="modal-chart-canvas"></canvas>
+            </div>
+        </div>
+    </div>
+    
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>
