@@ -1,0 +1,997 @@
+/* static/css/style.css */
+
+/* --- Global Styles & Variables --- */
+
+/* To change the theme, add one of the theme classes to the <body> tag in your HTML.
+   For example: <body class="app-page theme-light">
+   Available themes: .theme-light, .theme-forest, .theme-ocean, .theme-sunset, .theme-slate
+*/
+
+/* Default Dark Theme (no class needed) */
+:root {
+    --primary-bg: #1e1e2f;
+    --secondary-bg: #27293d;
+    --sidebar-bg: #1a1a2e;
+    --text-primary: #ffffff;
+    --text-secondary: #a9a9b3;
+    --accent-green: #6741d9;
+    --accent-red: #dc3545;
+    --accent-yellow: #ffc107;
+    --accent-blue: #007bff;
+    --accent-purple: #6f42c1;
+    --border-color: #333650;
+    --font-family: 'Roboto', sans-serif;
+    
+    /* RGB values for box-shadows */
+    --accent-green-rgb: 103, 65, 217;
+    --accent-blue-rgb: 0, 123, 255;
+    --accent-yellow-rgb: 255, 193, 7;
+    --accent-red-rgb: 220, 53, 69;
+    --accent-purple-rgb: 111, 66, 193;
+}
+
+/* Light Theme */
+.theme-light {
+    --primary-bg: #f4f6f8;
+    --secondary-bg: #ffffff;
+    --sidebar-bg: #1e1e2f;
+    --text-primary: #1e1e2f;
+    --text-secondary: #6c757d;
+    --border-color: #1e1e2f;
+}
+
+/* Forest Theme */
+.theme-forest {
+    --primary-bg: #2a3d33;
+    --secondary-bg: #3c5446;
+    --sidebar-bg: #212f27;
+    --text-primary: #f0f2ef;
+    --text-secondary: #b0bfb8;
+    --accent-green: #6a994e;
+    --accent-red: #bc4749;
+    --accent-yellow: #f6e093;
+    --accent-blue: #7cb69d;
+    --accent-purple: #a3b18a;
+    --border-color: #557560;
+}
+
+/* Ocean Theme */
+.theme-ocean {
+    --primary-bg: #003049;
+    --secondary-bg: #004266;
+    --sidebar-bg: #002233;
+    --text-primary: #eae2b7;
+    --text-secondary: #90a5b1;
+    --accent-green: #669bbc;
+    --accent-red: #d62828;
+    --accent-yellow: #f77f00;
+    --accent-blue: #0077b6;
+    --accent-purple: #8ecae6;
+    --border-color: #005a85;
+}
+
+/* Sunset Theme */
+.theme-sunset {
+    --primary-bg: #4c1a22;
+    --secondary-bg: #6f2632;
+    --sidebar-bg: #3c141a;
+    --text-primary: #fde8d7;
+    --text-secondary: #e5bba0;
+    --accent-green: #f28482;
+    --accent-red: #f25c54;
+    --accent-yellow: #f6bd60;
+    --accent-blue: #84a59d;
+    --accent-purple: #f5cac3;
+    --border-color: #8c2f39;
+}
+
+/* Slate Theme */
+.theme-slate {
+    --primary-bg: #263238;
+    --secondary-bg: #37474f;
+    --sidebar-bg: #1a2327;
+    --text-primary: #eceff1;
+    --text-secondary: #90a4ae;
+    --accent-green: #80cbc4;
+    --accent-red: #ef9a9a;
+    --accent-yellow: #fff59d;
+    --accent-blue: #90caf9;
+    --accent-purple: #b39ddb;
+    --border-color: #455a64;
+}
+
+
+body {
+    margin: 0;
+    font-family: var(--font-family);
+    color: var(--text-primary);
+    background-color: var(--primary-bg);
+}
+
+/* --- Landing Page Specific Styles --- */
+.landing-page {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    background: url('/static/images/bg.png') no-repeat center center/cover;
+    background-color: rgba(0, 0, 0, 0.7);
+    background-blend-mode: overlay;
+}
+
+.main-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 3rem;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.main-header .logo {
+    display: flex;
+    align-items: center;
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.main-header .logo img {
+    height: 50px;
+    margin-right: 10px;
+}
+
+.main-header nav a {
+    color: var(--text-primary);
+    text-decoration: none;
+    margin-left: 2rem;
+    font-weight: 400;
+    transition: color 0.3s;
+}
+
+.main-header nav a:hover {
+    color: var(--accent-green);
+}
+
+.landing-content {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.landing-content h1 {
+    font-size: 3rem;
+    max-width: 800px;
+    margin-bottom: 2rem;
+}
+
+.btn-get-started {
+    background-color: #6741d9;
+    color: var(--text-primary);
+    padding: 1rem 2rem;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 700;
+    transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+}
+
+.btn-get-started:hover {
+    background-color: #d18ae3;
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(var(--accent-green-rgb), 0.4);
+}
+
+/* --- Main Application Layout --- */
+.app-page {
+    display: flex;
+}
+
+.sidebar {
+    width: 250px;
+    flex-shrink: 0;
+    background-color: var(--sidebar-bg);
+    height: 100vh;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.3);
+    box-sizing: border-box; 
+    transition: width 0.3s ease-in-out;
+}
+
+.sidebar.collapsed {
+    width: 80px;
+}
+.sidebar.collapsed .sidebar-header {
+    justify-content: center;
+}
+.sidebar.collapsed .logo,
+.sidebar.collapsed .menu-text,
+.sidebar.collapsed .sidebar-footer {
+    display: none;
+}
+.sidebar.collapsed nav a {
+    justify-content: center;
+}
+
+.sidebar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.sidebar .logo {
+    font-size: 1.35rem;
+    font-weight: 700;
+    text-align: center;
+}
+
+.sidebar-toggle {
+    background: none;
+    border: none;
+    color: var(--text-secondary);
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 0 0.5rem;
+}
+
+.sidebar nav {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.sidebar nav a {
+    color: var(--text-secondary);
+    text-decoration: none;
+    padding: 1rem;
+    border-radius: 8px;
+    margin-bottom: 0.5rem;
+    transition: background-color 0.3s, color 0.3s;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.sidebar nav a i {
+    width: 20px; 
+    text-align: center;
+}
+
+.sidebar nav a:hover, .sidebar nav a.active {
+    background-color: var(--accent-green);
+    color: white;
+}
+
+/* Improved submenu styling */
+.submenu {
+    padding-left: 1.5rem;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-in-out;
+}
+
+.submenu.open {
+    max-height: 200px;
+}
+
+.submenu a {
+    display: block;
+    font-size: 0.9rem;
+    padding: 0.75rem 1rem;
+    margin-bottom: 0.25rem;
+    background-color: rgba(0,0,0,0.2);
+    border-radius: 5px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.submenu a.active, .submenu a:hover {
+     background-color: var(--accent-green) !important;
+     color: white !important;
+     /* opacity: 0.8; */
+}
+
+
+.sidebar-footer {
+    display: flex;
+    justify-content: space-around;
+}
+
+.sidebar-btn {
+    background: #1e1e2f;
+    color: white;
+    border: 1px solid var(--border-color);
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+}
+
+.main-content {
+    flex-grow: 1;
+    padding: 2rem;
+    background-color: var(--primary-bg);
+    overflow-y: auto;
+    height: 100vh;
+    box-sizing: border-box;
+    transition: margin-left 0.3s ease-in-out;
+}
+
+.main-content header {
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 1rem;
+    margin-bottom: 2rem;
+}
+
+.main-content header h2 {
+    margin: 0;
+    font-size: 1.8rem;
+}
+
+/* --- Specific Page Content --- */
+.home-content {
+    display: flex;
+    gap: 2rem;
+}
+
+.text-content {
+    flex: 2;
+    background: var(--secondary-bg);
+    padding: 2rem;
+    border-radius: 8px;
+    /* border: 1px solid var(--border-color); */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Soft shadow */
+}
+
+.text-content section {
+    margin-bottom: 2rem;
+}
+
+.image-content {
+    flex: 1;
+}
+
+.image-content img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+/* Dashboard & Visualization Grids */
+.dashboard-grid, .topic-grid, .scrape-summary-grid {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 1.5rem;
+}
+
+.stat-card {
+    background-color: var(--secondary-bg);
+    padding: 1.5rem;
+    border-radius: 8px;
+    text-align: center;
+    border-left: 7px solid; /* Made border thicker */
+    grid-column: span 12;
+    transition: transform 0.2s ease-in-out;
+}
+
+.stat-card:hover {
+    transform: translateY(-5px);
+}
+
+@media (min-width: 992px) {
+    .dashboard-grid .stat-card, .topic-grid .stat-card, .scrape-summary-grid .stat-card {
+        grid-column: span 3;
+    }
+}
+
+
+.stat-card h3 {
+    margin: 0 0 1rem 0;
+    font-size: 1rem;
+    color: var(--text-secondary);
+}
+
+.stat-card p {
+    margin: 0;
+    font-size: 2.5rem;
+    font-weight: 700;
+}
+
+.stat-card.positive { 
+    border-color: var(--accent-blue); 
+    box-shadow: 0 0 20px rgba(var(--accent-blue-rgb), 0.2);
+}
+.stat-card.neutral { 
+    border-color: var(--accent-yellow); 
+    box-shadow: 0 0 20px rgba(var(--accent-yellow-rgb), 0.2);
+}
+.stat-card.negative { 
+    border-color: var(--accent-red); 
+    box-shadow: 0 0 20px rgba(var(--accent-red-rgb), 0.2);
+}
+.stat-card.total { 
+    border-color: var(--accent-purple); 
+    box-shadow: 0 0 20px rgba(var(--accent-purple-rgb), 0.2);
+}
+
+.chart-container {
+    background-color: var(--secondary-bg);
+    padding: 1.5rem;
+    border-radius: 8px;
+    grid-column: span 12;
+    position: relative;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Soft shadow */
+}
+
+@media (min-width: 992px) {
+    .chart-span-8 {
+        grid-column: span 8;
+    }
+    .chart-span-6 {
+        grid-column: span 6;
+    }
+    .chart-span-4 {
+        grid-column: span 4;
+    }
+    .chart-span-3 {
+        grid-column: span 3;
+    }
+}
+
+
+.chart-container h3 {
+    margin-top: 0;
+    text-align: center;
+    font-size: 1rem;
+    color: var(--text-secondary);
+}
+
+/* --- NEW: Comment Card Layout Styles --- */
+
+/* Filter Buttons */
+.comment-filters {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.filter-btn {
+    background-color: var(--secondary-bg);
+    color: var(--text-secondary);
+    border: 1px solid var(--border-color);
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.filter-btn:hover {
+    background-color: var(--accent-purple);
+    color: white;
+    border-color: var(--accent-purple);
+}
+
+.filter-btn.active {
+    background-color: #8160e6;
+    color: white;
+    border-color: #8160e6;
+}
+
+/* Main cards container */
+#comments-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+/* Individual Comment Card */
+.comment-card {
+    background-color: var(--secondary-bg);
+    border-radius: 8px;
+    /* Replaced the black border with a subtle light grey one */
+    border: 1px solid #e9ecef;
+    padding: 1rem;
+    display: flex;
+    gap: 1rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); /* Added a default subtle shadow */
+    /* Added 'transform' to the transition for the hover effect */
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.comment-card:hover {
+    /* This creates the subtle 'lift' movement when you hover */
+    transform: translateY(-4px);
+    /* This makes the shadow slightly more pronounced on hover */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Left side of the card (Avatar) */
+.card-left .avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: white;
+}
+
+.avatar.positive { background-color: var(--accent-blue); }
+.avatar.neutral { background-color: var(--accent-yellow); }
+.avatar.negative { background-color: var(--accent-red); }
+
+
+/* Right side of the card (Content) */
+.card-right {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.card-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 0.5rem;
+    flex-wrap: wrap; /* Allows wrapping on small screens */
+}
+
+.card-header .username {
+    font-weight: bold;
+    color: var(--text-primary);
+}
+
+.card-header .timestamp {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+}
+
+/* Sentiment Tag */
+.sentiment-tag {
+    margin-left: auto; /* Pushes the tag to the far right */
+    font-size: 0.75rem;
+    font-weight: bold;
+    padding: 0.25rem 0.75rem;
+    border-radius: 12px;
+    color: white;
+    text-transform: uppercase;
+}
+
+.sentiment-tag.positive { background-color: var(--accent-blue); }
+.sentiment-tag.neutral { background-color: var(--accent-yellow); color: #333; }
+.sentiment-tag.negative { background-color: var(--accent-red); }
+
+.card-body p {
+    margin: 0 0 1rem 0;
+    color: var(--text-primary);
+    line-height: 1.6;
+}
+
+.card-footer {
+    display: flex;
+    gap: 1.5rem;
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    font-weight: bold;
+}
+
+.card-footer span {
+    cursor: pointer;
+}
+.card-footer span:hover {
+    color: var(--accent-green);
+}
+
+/* Analyser & Scraper */
+.analyser-content, .scrape-content, .help-content {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.platform-selector {
+    display: flex;
+    gap: 1rem;
+}
+
+.platform-btn {
+    background: var(--secondary-bg);
+    border: 1px solid var(--border-color);
+    color: var(--text-secondary);
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+.platform-btn.active {
+    background: var(--accent-red);
+    color: var(--text-primary);
+    border-color: var(--accent-red);
+}
+
+.input-area {
+    background: var(--secondary-bg);
+    padding: 1.5rem;
+    border-radius: 8px;
+    /* border: 1px solid var(--border-color); */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Soft shadow */
+}
+.input-area label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--text-secondary);
+}
+
+#text-to-analyze, #scrape-link {
+    width: 100%;
+    background-color: var(--primary-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 1rem;
+    color: var(--text-primary);
+    font-family: var(--font-family);
+    box-sizing: border-box;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Soft shadow */
+}
+
+#text-to-analyze {
+    height: 60px;
+    resize: vertical;
+}
+
+.action-buttons {
+    margin-top: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.btn-primary {
+    background-color: #00d54f;
+    color: var(--text-primary);
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    font-weight: 700;
+}
+.btn-secondary {
+    background-color: var(--accent-red);
+    color: var(--text-primary);
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    font-weight: 700;
+}
+.help-link {
+    color: var(--text-secondary);
+    text-decoration: underline;
+}
+
+.result-area {
+    background: var(--secondary-bg);
+    padding: 1.5rem;
+    border-radius: 8px;
+    min-height: 150px;
+    /* border: 1px solid var(--border-color); */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Soft shadow */
+}
+
+#analyser-result {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+.result-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    text-align: center;
+    width: 100%;
+    max-width: 500px;
+}
+.result-item h4 {
+    margin: 0 0 0.5rem 0;
+    color: var(--text-secondary);
+    font-weight: 400;
+    font-size: 1rem;
+    text-transform: uppercase;
+}
+.result-item p {
+    margin: 0;
+    font-size: 1.8rem;
+    font-weight: 700;
+}
+#result-sentiment.positive { color: var(--accent-blue); }
+#result-sentiment.neutral { color: var(--accent-yellow); }
+#result-sentiment.negative { color: var(--accent-red); }
+
+.scrape-charts-grid {
+    display: grid;
+    /* Change the column ratio to make the second chart smaller */
+    grid-template-columns: 1.5fr 1fr; 
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+.scrape-charts-grid .chart-container {
+    grid-column: auto;
+}
+
+.table-title {
+    text-align: center;
+    margin-bottom: 1rem;
+    font-size: 1.25rem;
+    font-weight: 700;
+}
+
+/* Help Page */
+.example-analyser {
+    background: var(--secondary-bg);
+    padding: 1.5rem;
+    border-radius: 8px;
+}
+.user-guideline {
+    background: var(--secondary-bg);
+    padding: 1.5rem;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+}
+.user-guideline h4 {
+    color: var(--accent-green);
+}
+.user-guideline .reference {
+    font-style: italic;
+    color: var(--text-secondary);
+}
+
+/* --- Modal Styles for Enlarging Charts --- */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s, visibility 0.3s;
+}
+
+.modal-overlay.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal-content {
+    background: var(--secondary-bg);
+    padding: 2rem;
+    border-radius: 8px;
+    width: 80%;
+    max-width: 1000px;
+    height: 80%;
+    position: relative;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+    display: flex;
+    flex-direction: column;
+}
+
+.modal-close {
+    position: absolute;
+    top: 1rem;
+    right: 1.5rem;
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: var(--text-secondary);
+    cursor: pointer;
+    border: none;
+    background: none;
+    line-height: 1;
+}
+.modal-close:hover {
+    color: var(--text-primary);
+}
+
+
+#modal-chart-container {
+    flex-grow: 1;
+    position: relative;
+}
+
+.enlarge-chart-btn {
+    position: absolute;
+    bottom: 0.5rem;
+    right: 0.5rem;
+    cursor: pointer;
+    background: rgba(255,255,255,0.1);
+    border-radius: 50%;
+    padding: 0.3rem;
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    transition: background-color 0.2s;
+}
+.enlarge-chart-btn:hover {
+    background: rgba(255,255,255,0.2);
+}
+
+.enlarge-chart-btn svg {
+    width: 18px;
+    height: 18px;
+    fill: var(--text-secondary);
+}
+
+/* --- Live Analysis Page Table Styles --- */
+/* --- Live Analysis Page Table Styles --- */
+.table-title {
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    font-size: 1.25rem;
+    font-weight: 700;
+}
+
+#scrape-results-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: var(--secondary-bg);
+    border-radius: 8px;
+    overflow: hidden; /* Ensures the corners of the table are rounded */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+#scrape-results-table th,
+#scrape-results-table td {
+    padding: 0.85rem 1rem;
+    text-align: left;
+    /* Made the border slightly darker to be more visible */
+    border-bottom: 1px solid #dee2e6;
+    vertical-align: middle;
+}
+
+/* Removes the border from the very last row */
+#scrape-results-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+#scrape-results-table thead th {
+    /* Changed the header background color to your requested color */
+    background-color: #6741d9;
+    /* Changed the text color to white for better contrast */
+    color: #ffffff;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+#scrape-results-table tbody tr:hover {
+    /* A subtle hover effect */
+    background-color: rgba(103, 65, 217, 0.07); 
+}
+
+/* --- Print-Specific Styles --- */
+@media print {
+    /* Hide all elements by default */
+    body > * {
+        display: none;
+    }
+
+    /* ONLY show the main content area */
+    .main-content {
+        display: block !important;
+        /* Remove web-only styling */
+        padding: 0;
+        margin: 0;
+        box-shadow: none;
+        height: auto;
+        overflow: visible;
+    }
+    
+    /* Hide elements inside main-content that you don't want to print */
+    .main-content header, 
+    .input-area, 
+    .action-buttons, 
+    .sidebar,
+    .platform-selector {
+        display: none !important;
+    }
+
+    /* Ensure charts and tables are visible and use the full width */
+    .scrape-charts-grid,
+    #scrape-results-container {
+        display: block !important;
+    }
+    
+    /* Stack the grid items vertically for a clean print layout */
+    .scrape-charts-grid .chart-container {
+        width: 100% !important;
+        grid-column: span 12 !important; /* Override grid settings */
+        page-break-inside: avoid; /* Try not to split a chart over two pages */
+    }
+
+    /* Start the table on a new page after the charts */
+    #scrape-results-container {
+        margin-top: 1in; /* Add some space before the table */
+        page-break-before: always;
+    }
+
+    /* Simplify table appearance for black & white printing */
+    #scrape-results-table, #scrape-results-table th, #scrape-results-table td {
+        border-color: #ccc !important;
+    }
+
+    #scrape-results-table thead th {
+        background-color: #f2f2f2 !important;
+        color: #000 !important;
+    }
+    
+    /* Disable animations on charts for printing */
+    .chartjs-render-monitor {
+        animation: none !important;
+    }
+}
+
+/* --- NEW: Analyser Score Legend Styles --- */
+
+/* And replace them with this single, updated rule */
+/* And replace it with this updated rule */
+.score-legend-container {
+    /* Sets a maximum width to make the scale shorter */
+    max-width: 550px;
+    /* Uses auto margins to center the container horizontally */
+    margin: 2.5rem auto 0;
+    
+    padding: 0;
+    background-color: transparent;
+    box-shadow: none;
+}
+
+.legend-bar {
+    height: 12px;
+    border-radius: 6px;
+    /* Creates the smooth color gradient using your theme's accent colors */
+    background: linear-gradient(to right, 
+        var(--accent-red), 
+        var(--accent-yellow) 50%, 
+        var(--accent-blue)
+    );
+}
+
+.legend-labels {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 0.75rem;
+}
+
+.label-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    width: 60px; /* Gives each item a consistent width */
+    text-align: center;
+}
+
+/* Positions the middle and end labels correctly */
+.label-item:nth-child(1) { align-items: flex-start; text-align: left; }
+.label-item:nth-child(5) { align-items: flex-end; text-align: right; }
+
+.label-item .score-value {
+    font-weight: bold;
+    color: var(--text-primary);
+    margin-top: 4px;
+}

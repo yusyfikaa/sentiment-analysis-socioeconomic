@@ -1,0 +1,433 @@
+/* static/css/landing.css */
+
+:root {
+    --primary-color: #6741d9;
+    --secondary-color: #6b7280;
+    --background-color: #ffffff;
+    --surface-color: #f9fafb;
+    --text-dark: #111827;
+    --text-light: #f9fafb;
+    --font-family: 'Inter', sans-serif;
+}
+
+body {
+    font-family: var(--font-family);
+    background-color: var(--background-color);
+    color: var(--text-dark);
+    margin: 0;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+/* Header */
+.landing-header {
+    background-color: var(--background-color);
+    padding: 1rem 0;
+    border-bottom: 1px solid #e5e7eb;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.landing-header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 700;
+    font-size: 1.25rem;
+    color: var(--text-dark);
+}
+
+.main-nav a {
+    text-decoration: none;
+    color: var(--secondary-color);
+    margin: 0 1rem;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.main-nav a:hover {
+    color: var(--primary-color);
+}
+
+.btn {
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    color: var(--text-light);
+}
+
+.btn-primary:hover {
+    background-color: #4338ca;
+}
+
+.btn-secondary {
+    background-color: var(--background-color);
+    color: var(--secondary-color);
+    border: 1px solid #e5e7eb;
+}
+
+.btn-secondary:hover {
+    background-color: var(--surface-color);
+}
+
+/* Hero Section */
+.hero {
+    padding: 6rem 0;
+    background-color: var(--surface-color);
+}
+
+.hero-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 4rem;
+}
+
+.hero-text h1 {
+    font-size: 3.5rem;
+    font-weight: 800;
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+}
+
+.hero-text .highlight {
+    color: var(--primary-color);
+}
+
+.hero-text p {
+    font-size: 1.125rem;
+    color: var(--secondary-color);
+    margin-bottom: 2.5rem;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 1rem;
+}
+
+.hero-image img {
+    width: 100%;
+    border-radius: 12px;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+}
+
+/* Trusted By Section */
+.trusted-by {
+    padding: 2rem 0;
+    text-align: center;
+}
+
+.trusted-by p {
+    font-weight: 600;
+    color: var(--secondary-color);
+    letter-spacing: 0.1em;
+    font-size: 0.875rem;
+    margin-bottom: 1.5rem;
+}
+
+.logos {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 2rem;
+    filter: grayscale(100%);
+    opacity: 0.6;
+}
+
+.logos span {
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+/* Features Section */
+.features {
+    padding: 6rem 0;
+}
+
+.features .container {
+    text-align: center;
+}
+
+h2 {
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+}
+
+.section-subtitle {
+    font-size: 1.125rem;
+    color: var(--secondary-color);
+    max-width: 600px;
+    margin: 0 auto 4rem auto;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+
+.feature-card {
+    background-color: var(--surface-color);
+    padding: 2rem;
+    border-radius: 12px;
+    text-align: left;
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+.feature-card .icon {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    background-color: #e0e7ff;
+    padding: 0.75rem;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    display: inline-block;
+}
+
+.feature-card h3 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+/* How It Works Section */
+.how-it-works {
+    padding: 6rem 0;
+    background-color: var(--surface-color);
+}
+
+.how-it-works .container {
+    text-align: center;
+}
+
+.steps-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 4rem;
+    margin-top: 4rem;
+}
+
+.step .step-number {
+    width: 50px;
+    height: 50px;
+    background-color: #e0e7ff;
+    color: var(--primary-color);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin: 0 auto 1.5rem auto;
+}
+
+.step h3 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+/* CTA Section */
+.cta {
+    padding: 6rem 0;
+    background: linear-gradient(90deg, #4f46e5 0%, #7c3aed 100%);
+    color: var(--text-light);
+    text-align: center;
+}
+
+.cta h2 {
+    font-size: 2.5rem;
+}
+
+.cta p {
+    font-size: 1.125rem;
+    opacity: 0.9;
+    max-width: 600px;
+    margin: 1rem auto 2rem auto;
+}
+
+.cta .btn-primary {
+    background-color: var(--text-light);
+    color: var(--primary-color);
+}
+
+.cta .btn-secondary {
+    background: none;
+    border: 1px solid var(--text-light);
+    color: var(--text-light);
+}
+
+/* Footer */
+.landing-footer {
+    background-color: #111827;
+    color: #9ca3af;
+    padding-top: 4rem;
+}
+
+.footer-container {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 2rem;
+}
+
+.footer-about .logo {
+    color: var(--text-light);
+}
+
+.footer-about p {
+    margin: 1rem 0;
+    max-width: 300px;
+}
+
+.social-icons a {
+    color: #9ca3af;
+    margin-right: 1rem;
+    font-size: 1.25rem;
+    transition: color 0.3s;
+}
+
+.social-icons a:hover {
+    color: var(--text-light);
+}
+
+.footer-links h4 {
+    color: var(--text-light);
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.footer-links a {
+    display: block;
+    text-decoration: none;
+    color: #9ca3af;
+    margin-bottom: 0.5rem;
+    transition: color 0.3s;
+}
+
+.footer-links a:hover {
+    color: var(--text-light);
+}
+
+.footer-bottom {
+    text-align: center;
+    padding: 2rem 0;
+    margin-top: 2rem;
+    border-top: 1px solid #374151;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 992px) {
+    .hero-container {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+    .hero-text {
+        order: 2;
+    }
+    .hero-image {
+        order: 1;
+        margin-bottom: 2rem;
+    }
+    .hero-buttons {
+        justify-content: center;
+    }
+    .features-grid, .steps-container {
+        grid-template-columns: 1fr 1fr;
+    }
+    .footer-container {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .main-nav {
+        display: none; /* Simple hiding for mobile, can be replaced with a hamburger menu */
+    }
+    .features-grid, .steps-container {
+        grid-template-columns: 1fr;
+    }
+    .footer-container {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+    .footer-about {
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+    }
+}
+/* --- NEW: Skeleton Loader Styles (Robust Version) --- */
+
+.skeleton {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #e2e8f0;
+    z-index: 10;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.skeleton::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, #e2e8f0, #f8fafc, #e2e8f0);
+    animation: shimmer 1.5s infinite;
+}
+
+@keyframes shimmer {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+}
+
+/* Visibility Control */
+/* By default, the skeleton is hidden */
+.skeleton {
+    display: none;
+}
+/* When the parent has .is-loading, show the skeleton... */
+.is-loading .skeleton {
+    display: block;
+}
+/* ...and hide the real content */
+.is-loading > *:not(.skeleton) {
+    visibility: hidden;
+}
+.is-loading .chart-container > *:not(.skeleton) {
+    visibility: hidden;
+}
+.is-loading .stat-card > *:not(.skeleton) {
+    visibility: hidden;
+}
